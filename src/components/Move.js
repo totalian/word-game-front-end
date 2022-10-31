@@ -1,8 +1,12 @@
 import React from 'react'
 
-const Move = ({word, moveName, cost, color}) => {
+const Move = ({word, moveName, cost, color, moveNumber, setShowHistoryJump, setHistoryIndex}) => {
+    const handleClick = () => {
+        setHistoryIndex(moveNumber)
+        setShowHistoryJump(true)
+    }
   return (
-    <div className='h-12 flex w-full items-center justify-between bg-white px-6 rounded-md'>
+    <div className='h-12 flex w-full items-center justify-between bg-white px-6 rounded-md' onClick={handleClick}>
         <div>{word}</div>
         <div className='flex gap-4 justify-end items-center'>
             <span className={`h-8 ${color} flex items-center rounded-lg px-2 text-white font-semibold`}>{moveName}</span>
