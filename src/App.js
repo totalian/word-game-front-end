@@ -13,7 +13,7 @@ function App() {
   const [currentScore, setCurrentScore] = useState(0)
   const [playerBestScore, setPlayerBestScore] = useState(0)
   const [globalBestScore, setGlobalBestScore] = useState(200)
-  const [playedMoves, setPlayedMoves] = useState([])
+  const [playedMoves, setPlayedMoves] = useState([{word:startWord,cost:0,color:"bg-red-800",name:"Start word"}])
   const [checkingWord, setCheckingWord] = useState(false)
   const [currentWord, setCurrentWord] = useState(startWord)
   const [gameOver, setGameOver] = useState(false)
