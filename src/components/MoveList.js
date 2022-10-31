@@ -1,5 +1,5 @@
 import React from 'react'
-import { moveSet } from '../scoringFunctions/moveSet.mjs'
+import { moveSet } from '../scoringFunctions/moveSet.js'
 import MoveCard from './MoveCard.js'
 
 const MoveList = () => {

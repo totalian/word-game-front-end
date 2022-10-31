@@ -6,7 +6,7 @@ const Move = ({word, moveName, cost, color}) => {
         <div>{word}</div>
         <div className='flex gap-4 justify-end items-center'>
             <span className={`h-8 ${color} flex items-center rounded-lg px-2 text-white font-semibold`}>{moveName}</span>
-            <span className='text-xl text-green-600 font-bold'>+{cost}</span>
+            <span className='text-xl text-green-600 font-bold'>{cost > 0 ? '+' + cost: null}</span>
         </div>
     </div>
   )

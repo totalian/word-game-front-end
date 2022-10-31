@@ -1,4 +1,4 @@
-import * as moves from './moveFunctions.mjs'
+import * as moves from './moveFunctions.js'
 
 export const moveSet = [
     {

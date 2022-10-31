@@ -1,12 +1,19 @@
 import React from 'react'
 import Move from './Move'
 
-const MoveHistory = () => {
+const MoveHistory = ({startWord, playedMoves}) => {
   return (
     <div className='flex px-4 items-center flex-col justify-end h-full gap-2'>
-        <Move word="grape" moveName="Start word" cost={50} color='bg-red-800' />
-        <Move word="grapefruit" moveName="Tail extension" cost={50} color='bg-blue-800' />
-        <Move word="fruit" moveName="Head retraction" cost={50} color='bg-green-800' />
+        <Move word={startWord} moveName="Start word" cost={0} color='bg-red-800' />
+        {playedMoves.map((move, index) => {
+            return <Move
+            key={index}
+            word={move.word}
+            moveName={move.name}
+            cost={move.cost}
+            color={move.color}
+            />
+        })}
     </div>
   )
 }
