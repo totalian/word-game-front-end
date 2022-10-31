@@ -18,6 +18,7 @@ function App() {
   const [currentWord, setCurrentWord] = useState(startWord)
   const [gameOver, setGameOver] = useState(false)
   const [showHistoryJump,setShowHistoryJump] = useState(true)
+  const [historyIndex,setHistoryIndex] = useState(0)
 
   const calculateCurrentScore = () => {
     if(playedMoves.length > 0){
@@ -73,7 +74,7 @@ function App() {
     <div className="App h-screen">
       <Header />
       {gameOver && <GameOver currentScore={currentScore} restart={restart} />}
-      {showHistoryJump && <HistoryJump setShowHistoryJump={setShowHistoryJump} jumpToHistory={jumpToHistory} playedMoves={playedMoves}/>}
+      {showHistoryJump && <HistoryJump setShowHistoryJump={setShowHistoryJump} jumpToHistory={jumpToHistory} playedMoves={playedMoves} index={historyIndex}/>}
       <div className="flex h-full">
         <GameFrame
           targetWord={targetWord}

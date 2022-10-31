@@ -1,7 +1,7 @@
 import React from 'react'
 import Move from './Move'
 
-const MoveHistory = ({startWord, playedMoves}) => {
+const MoveHistory = ({startWord, playedMoves, setShowHistoryJump}) => {
   return (
     <div className='flex px-4 items-center flex-col justify-end h-full gap-2'>
         <Move word={startWord} moveName="Start word" cost={0} color='bg-red-800' />
@@ -12,6 +12,7 @@ const MoveHistory = ({startWord, playedMoves}) => {
             moveName={move.name}
             cost={move.cost}
             color={move.color}
+            setShowHistoryJump={setShowHistoryJump}
             />
         })}
     </div>
