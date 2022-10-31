@@ -71,6 +71,7 @@ export const headSubstitutionChanges = (inputWord, currentWord) => {
 }
 
 export const tailSubstitutionChanges = (inputWord, currentWord) => {
+    let intermediaryWord
     for(let i = 0; i < currentWord.length; i++){
         if(currentWord[i] != inputWord[i]){
             intermediaryWord = currentWord.slice(0, i)
