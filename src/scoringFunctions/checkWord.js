@@ -1,14 +1,10 @@
-import request from 'request-promise'
+import axios from 'axios'
 
 export const checkWord = async word => {
     try {
-        await request({
-            method: "GET",
-            uri: `http://api.dictionaryapi.dev/api/v2/entries/en/${word}`,
-            resolveWithFullResponse: true,
-        })
+        await axios.get(`http://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     } catch (err) {
-        console.log('api status:',err.statusCode)
+        console.log('api status:', err.statusCode)
         return false
     }
     return true

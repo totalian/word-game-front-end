@@ -17,7 +17,7 @@ export const moveSet = [
         description: "Add letters to beginning of word",
         example: "fruit > grapefruit",
         costDescription: "10 \u00D7 number of letters added",
-        color: "bg-blue-800",
+        color: "bg-zinc-800",
     },
     {
         name: "Tail Extension",
@@ -26,7 +26,7 @@ export const moveSet = [
         description: "Add letters to end of word",
         example: "worth > worthier",
         costDescription: "10 \u00D7 number of letters added",
-        color: "bg-blue-800",
+        color: "bg-orange-800",
     },
     {
         name: "Two-way extension",
@@ -35,7 +35,7 @@ export const moveSet = [
         description: "Add letters to beginning and end of word",
         example: "on > tonne",
         costDescription: "10 \u00D7 number of letters added",
-        color: "bg-blue-800",
+        color: "bg-amber-800",
     },
     {
         name: "Head Retraction",
@@ -44,7 +44,7 @@ export const moveSet = [
         description: "Remove letters from beginning of word",
         example: "frozen > zen",
         costDescription: "10 \u00D7 number of letters removed",
-        color: "bg-blue-800",
+        color: "bg-lime-800",
     },
     {
         name: "Tail Retraction",
@@ -53,7 +53,7 @@ export const moveSet = [
         description: "Remove letters from end of word",
         example: "action > act",
         costDescription: "10 \u00D7 number of letters removed",
-        color: "bg-blue-800",
+        color: "bg-emerald-800",
     },
     {
         name: "Two-way retraction",
@@ -62,7 +62,7 @@ export const moveSet = [
         description: "Remove letters from beginning and end of word",
         example: "placed > ace",
         costDescription: "10 \u00D7 number of letters removed",
-        color: "bg-blue-800",
+        color: "bg-cyan-800",
     },
     {
         name: "Letter substitution",
@@ -71,7 +71,7 @@ export const moveSet = [
         description: "Switch any single letter",
         example: "purse > parse",
         costDescription: "100",
-        color: "bg-blue-800",
+        color: "bg-sky-800",
     },
     {
         name: "Head swap",
@@ -80,7 +80,7 @@ export const moveSet = [
         description: "Switch letters at beginning of word",
         example: "float > boat",
         costDescription: "10 \u00D7 number of letters removed and added",
-        color: "bg-blue-800",
+        color: "bg-indigo-800",
     },
     {
         name: "Tail swap",
@@ -89,6 +89,6 @@ export const moveSet = [
         description: "Switch letters at beginning of word",
         example: "vice > victor",
         costDescription: "10 \u00D7 number of letters removed and added",
-        color: "bg-blue-800",
+        color: "bg-violet-800",
     }
 ]
