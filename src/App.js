@@ -76,6 +76,7 @@ function App() {
           globalBestScore={globalBestScore}
           playedMoves={playedMoves}
           playWord={playWord}
+          checkingWord={checkingWord}
         />
         <MoveListSection />
       </div>
