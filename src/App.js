@@ -17,7 +17,7 @@ function App() {
   const [checkingWord, setCheckingWord] = useState(false)
   const [currentWord, setCurrentWord] = useState(startWord)
   const [gameOver, setGameOver] = useState(false)
-  const [showHistoryJump,setShowHistoryJump] = useState(true)
+  const [showHistoryJump,setShowHistoryJump] = useState(false)
   const [historyIndex,setHistoryIndex] = useState(0)
 
   const calculateCurrentScore = () => {
@@ -86,6 +86,7 @@ function App() {
           playWord={playWord}
           checkingWord={checkingWord}
           setShowHistoryJump={setShowHistoryJump}
+          setHistoryIndex={setHistoryIndex}
         />
         <MoveListSection />
       </div>
