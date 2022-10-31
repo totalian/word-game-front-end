@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import GameFrame from "./components/GameFrame";
 import GameOver from "./components/GameOver";
 import Header from "./components/Header";
+import HistoryJump from "./components/HistoryJump";
 import MoveListSection from "./components/MoveListSection";
 import { checkWord } from "./scoringFunctions/checkWord.js"
 import { playMove } from "./scoringFunctions/playMove.js"
@@ -16,6 +17,7 @@ function App() {
   const [checkingWord, setCheckingWord] = useState(false)
   const [currentWord, setCurrentWord] = useState(startWord)
   const [gameOver, setGameOver] = useState(false)
+  const [showHistoryJump,setShowHistoryJump] = useState(true)
 
   const calculateCurrentScore = () => {
     if(playedMoves.length > 0){
@@ -62,11 +64,16 @@ function App() {
     }
   },[currentWord,targetWord])
 
+  const jumpToHistory = index => {
+    setPlayedMoves(playedMoves.slice(0,index + 1))
+  }
+
 
   return (
     <div className="App h-screen">
       <Header />
       {gameOver && <GameOver currentScore={currentScore} restart={restart} />}
+      {showHistoryJump && <HistoryJump setShowHistoryJump={setShowHistoryJump} jumpToHistory={jumpToHistory} playedMoves={playedMoves}/>}
       <div className="flex h-full">
         <GameFrame
           targetWord={targetWord}
@@ -77,6 +84,7 @@ function App() {
           playedMoves={playedMoves}
           playWord={playWord}
           checkingWord={checkingWord}
+          setShowHistoryJump={setShowHistoryJump}
         />
         <MoveListSection />
       </div>

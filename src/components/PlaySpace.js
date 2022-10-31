@@ -2,11 +2,11 @@ import React from 'react'
 import MoveHistory from './MoveHistory'
 import Input from './Input'
 
-const PlaySpace = ({startWord, playedMoves, playWord, checkingWord}) => {
+const PlaySpace = ({startWord, playedMoves, playWord, checkingWord, setShowHistoryJump}) => {
   return (
     <div
     className='flex-grow flex flex-col gap-8 w-10/12 bg-gray-50 mb-12'>
-        <MoveHistory startWord={startWord} playedMoves={playedMoves} />
+        <MoveHistory startWord={startWord} playedMoves={playedMoves} setShowHistoryJump={setShowHistoryJump}/>
         <Input playWord={playWord} checkingWord={checkingWord} />
     </div>
   )

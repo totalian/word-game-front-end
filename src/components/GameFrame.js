@@ -2,7 +2,7 @@ import React from 'react'
 import PlaySpace from './PlaySpace'
 import StatBar from './StatBar'
 
-const GameFrame = ({ startWord, targetWord, currentScore, playerBestScore, globalBestScore, playedMoves, playWord, checkingWord }) => {
+const GameFrame = ({ startWord, targetWord, currentScore, playerBestScore, globalBestScore, playedMoves, playWord, checkingWord, setShowHistoryJump }) => {
     return (
         <div className='w-9/12 max-h-full bg-gray-100 flex flex-col gap-12 items-center pt-12'>
             <StatBar targetWord={targetWord} currentScore={currentScore} playerBestScore={playerBestScore} globalBestScore={globalBestScore} />
@@ -10,6 +10,7 @@ const GameFrame = ({ startWord, targetWord, currentScore, playerBestScore, globa
                 playedMoves={playedMoves}
                 playWord={playWord}
                 checkingWord={checkingWord}
+                setShowHistoryJump={setShowHistoryJump}
             />
         </div>
     )
