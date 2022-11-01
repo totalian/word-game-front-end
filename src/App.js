@@ -29,7 +29,6 @@ function App() {
 
   useEffect(() => {
     const todaysWords = words.find(word => word.date == new Date().toDateString())
-    console.log(todaysWords)
     setStartWord(todaysWords.startWord)
     setCurrentWord(todaysWords.startWord)
     setTargetWord(todaysWords.endWord)
