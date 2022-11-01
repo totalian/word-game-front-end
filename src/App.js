@@ -6,6 +6,7 @@ import HistoryJump from "./components/HistoryJump";
 import MoveListSection from "./components/MoveListSection";
 import { checkWord } from "./scoringFunctions/checkWord.js"
 import { playMove } from "./scoringFunctions/playMove.js"
+import {words} from "./database"
 
 function App() {
   const [startWord, setStartWord] = useState("grape")
@@ -13,7 +14,7 @@ function App() {
   const [currentScore, setCurrentScore] = useState(0)
   const [playerBestScore, setPlayerBestScore] = useState(0)
   const [globalBestScore, setGlobalBestScore] = useState(200)
-  const [playedMoves, setPlayedMoves] = useState([{word:startWord,cost:0,color:"bg-red-800",name:"Start word"}])
+  const [playedMoves, setPlayedMoves] = useState([])
   const [checkingWord, setCheckingWord] = useState(false)
   const [currentWord, setCurrentWord] = useState(startWord)
   const [gameOver, setGameOver] = useState(false)
@@ -25,6 +26,14 @@ function App() {
       return playedMoves.reduce((pre, cur) => pre + cur.cost, 0)
     } else return 0
   }
+
+  useEffect(() => {
+    const todaysWords = words.find(word => word.date == new Date().toDateString())
+    console.log(todaysWords)
+    setStartWord(todaysWords.startWord)
+    setTargetWord(todaysWords.endWord)
+    setPlayedMoves([{word:startWord,cost:0,color:"bg-red-800",name:"Start word"}])
+  },[startWord, targetWord])
 
   const playWord = async inputWord => {
     setCheckingWord(true)
