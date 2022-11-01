@@ -31,6 +31,7 @@ function App() {
     const todaysWords = words.find(word => word.date == new Date().toDateString())
     console.log(todaysWords)
     setStartWord(todaysWords.startWord)
+    setCurrentWord(todaysWords.startWord)
     setTargetWord(todaysWords.endWord)
     setPlayedMoves([{word:startWord,cost:0,color:"bg-red-800",name:"Start word"}])
   },[startWord, targetWord])
@@ -58,7 +59,7 @@ function App() {
 
   const restart = () => {
     setGameOver(false)
-    setPlayedMoves([])
+    setPlayedMoves([{word:startWord,cost:0,color:"bg-red-800",name:"Start word"}])
   }
 
   const endGame = () => {
@@ -76,6 +77,7 @@ function App() {
 
   const jumpToHistory = index => {
     setPlayedMoves(playedMoves.slice(0,index + 1))
+    setCurrentWord(playedMoves[index].word)
   }
 
 
