@@ -85,7 +85,7 @@ export const moveSet = [
     {
         name: "Tail swap",
         isValid: moves.checkTailSubstitution,
-        cost: (inputWord, currentWord) => moves.headSubstitutionChanges(inputWord, currentWord) * 10,
+        cost: (inputWord, currentWord) => moves.tailSubstitutionChanges(inputWord, currentWord) * 10,
         description: "Switch letters at beginning of word",
         example: "vice > victor",
         costDescription: "10 \u00D7 number of letters removed and added",
