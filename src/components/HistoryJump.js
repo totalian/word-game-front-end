@@ -7,7 +7,7 @@ const HistoryJump = ({setShowHistoryJump, jumpToHistory, index, playedMoves}) =>
     }
     return (
         <div className='h-full w-full absolute flex justify-center items-center backdrop-blur-sm'>
-            <div className='h-fit w-1/3 bg-white z-20 rounded-md items-center flex flex-col gap-4 pt-6 pb-16 px-8 drop-shadow-lg'>
+            <div className='h-fit lg:w-1/3 bg-white z-20 rounded-md items-center flex flex-col gap-4 pt-6 pb-16 px-8 drop-shadow-lg'>
                 <div className='flex justify-end text-3xl w-full' onClick={() => setShowHistoryJump(false)}>&times;</div>
                 <div className='text-xl font-bold flex justify-center '>Jump back to word</div>
                 <div className='flex flex-col items-center text-lg font-semibold'>
