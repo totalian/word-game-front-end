@@ -11,7 +11,7 @@ const Input = ({ playWord, checkingWord }) => {
         onChange={e => setInputValue(e.target.value)} 
         onKeyDown={e => {
             if(e.key == 'Enter'){
-                inputValue = inputValue.toLowerCase()
+                setInputValue(inputValue.toLowerCase())
                 playWord(inputValue)
                 setInputValue("")
             }
