@@ -6,7 +6,7 @@ import HistoryJump from "./components/HistoryJump";
 import MoveListSection from "./components/MoveListSection";
 import { checkWord } from "./scoringFunctions/checkWord.js"
 import { playMove } from "./scoringFunctions/playMove.js"
-import {words} from "./database"
+import { words } from "./database"
 
 function App() {
   const [startWord, setStartWord] = useState("grape")
@@ -18,11 +18,12 @@ function App() {
   const [checkingWord, setCheckingWord] = useState(false)
   const [currentWord, setCurrentWord] = useState(startWord)
   const [gameOver, setGameOver] = useState(false)
-  const [showHistoryJump,setShowHistoryJump] = useState(false)
-  const [historyIndex,setHistoryIndex] = useState(0)
+  const [showHistoryJump, setShowHistoryJump] = useState(false)
+  const [historyIndex, setHistoryIndex] = useState(0)
+  const [showMoveSection, setShowMoveSection] = useState(false)
 
   const calculateCurrentScore = () => {
-    if(playedMoves.length > 0){
+    if (playedMoves.length > 0) {
       return playedMoves.reduce((pre, cur) => pre + cur.cost, 0)
     } else return 0
   }
@@ -32,8 +33,8 @@ function App() {
     setStartWord(todaysWords.startWord)
     setCurrentWord(todaysWords.startWord)
     setTargetWord(todaysWords.endWord)
-    setPlayedMoves([{word:startWord,cost:0,color:"bg-red-800",name:"Start word"}])
-  },[startWord, targetWord])
+    setPlayedMoves([{ word: startWord, cost: 0, color: "bg-red-800", name: "Start word" }])
+  }, [startWord, targetWord])
 
   const playWord = async inputWord => {
     setCheckingWord(true)
@@ -58,33 +59,33 @@ function App() {
 
   const restart = () => {
     setGameOver(false)
-    setPlayedMoves([{word:startWord,cost:0,color:"bg-red-800",name:"Start word"}])
+    setPlayedMoves([{ word: startWord, cost: 0, color: "bg-red-800", name: "Start word" }])
   }
 
   const endGame = () => {
-    if(currentScore < playerBestScore || playerBestScore == 0){
+    if (currentScore < playerBestScore || playerBestScore == 0) {
       setPlayerBestScore(currentScore)
     }
     setGameOver(true)
   }
 
   useEffect(() => {
-    if(currentWord == targetWord){
+    if (currentWord == targetWord) {
       return endGame()
     }
-  },[currentWord,targetWord])
+  }, [currentWord, targetWord])
 
   const jumpToHistory = index => {
-    setPlayedMoves(playedMoves.slice(0,index + 1))
+    setPlayedMoves(playedMoves.slice(0, index + 1))
     setCurrentWord(playedMoves[index].word)
   }
 
 
   return (
-    <div className="App h-screen">
+    <div className="h-screen">
       <Header />
       {gameOver && <GameOver currentScore={currentScore} restart={restart} />}
-      {showHistoryJump && <HistoryJump setShowHistoryJump={setShowHistoryJump} jumpToHistory={jumpToHistory} playedMoves={playedMoves} index={historyIndex}/>}
+      {showHistoryJump && <HistoryJump setShowHistoryJump={setShowHistoryJump} jumpToHistory={jumpToHistory} playedMoves={playedMoves} index={historyIndex} />}
       <div className="flex h-full">
         <GameFrame
           targetWord={targetWord}
@@ -97,9 +98,12 @@ function App() {
           checkingWord={checkingWord}
           setShowHistoryJump={setShowHistoryJump}
           setHistoryIndex={setHistoryIndex}
+          showMoveSection={showMoveSection}
+          setShowMoveSection={setShowMoveSection}
         />
-        <MoveListSection />
+        <MoveListSection setShowMoveSection={setShowMoveSection} showMoveSection={showMoveSection} />
       </div>
+      <div></div>
     </div>
   );
 }
