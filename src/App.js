@@ -63,6 +63,7 @@ function App() {
     }
     setGameOver(false)
     setPlayedMoves([{ word: startWord, cost: 0, color: "bg-red-800", name: "Start word" }])
+    setCurrentWord(startWord)
   }
 
   useEffect(() => {
