@@ -78,7 +78,7 @@ function App() {
 
 
   return (
-    <div className="flex flex-col h-screen overflow-clip">
+    <div className="flex flex-col h-screen lg:overflow-clip">
         <Header />
         {gameOver && <GameOver currentScore={currentScore} restart={restart} />}
         {showHistoryJump && <HistoryJump setShowHistoryJump={setShowHistoryJump} jumpToHistory={jumpToHistory} playedMoves={playedMoves} index={historyIndex} />}
