@@ -12,7 +12,7 @@ function App() {
   const [startWord, setStartWord] = useState("grape")
   const [targetWord, setTargetWord] = useState("suit")
   const [currentScore, setCurrentScore] = useState(0)
-  const [playerBestScore, setPlayerBestScore] = useState(0)
+  const [playerBestScore, setPlayerBestScore] = useState(null)
   const [globalBestScore, setGlobalBestScore] = useState(200)
   const [playedMoves, setPlayedMoves] = useState([])
   const [checkingWord, setCheckingWord] = useState(false)
@@ -58,20 +58,16 @@ function App() {
   }, [playedMoves])
 
   const restart = () => {
+    if(!playerBestScore || currentScore <= playerBestScore){
+      setPlayerBestScore(currentScore)
+    }
     setGameOver(false)
     setPlayedMoves([{ word: startWord, cost: 0, color: "bg-red-800", name: "Start word" }])
   }
 
-  const endGame = () => {
-    if (currentScore < playerBestScore || playerBestScore == 0) {
-      setPlayerBestScore(currentScore)
-    }
-    setGameOver(true)
-  }
-
   useEffect(() => {
     if (currentWord == targetWord) {
-      return endGame()
+      return setGameOver(true)
     }
   }, [currentWord, targetWord])
 
