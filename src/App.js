@@ -58,7 +58,7 @@ function App() {
   }, [playedMoves])
 
   const restart = () => {
-    if(!playerBestScore || currentScore <= playerBestScore){
+    if (!playerBestScore || currentScore <= playerBestScore) {
       setPlayerBestScore(currentScore)
     }
     setGameOver(false)
@@ -78,28 +78,27 @@ function App() {
 
 
   return (
-    <div className="h-screen">
-      <Header />
-      {gameOver && <GameOver currentScore={currentScore} restart={restart} />}
-      {showHistoryJump && <HistoryJump setShowHistoryJump={setShowHistoryJump} jumpToHistory={jumpToHistory} playedMoves={playedMoves} index={historyIndex} />}
-      <div className="flex h-full">
-        <GameFrame
-          targetWord={targetWord}
-          startWord={startWord}
-          currentScore={currentScore}
-          playerBestScore={playerBestScore}
-          globalBestScore={globalBestScore}
-          playedMoves={playedMoves}
-          playWord={playWord}
-          checkingWord={checkingWord}
-          setShowHistoryJump={setShowHistoryJump}
-          setHistoryIndex={setHistoryIndex}
-          showMoveSection={showMoveSection}
-          setShowMoveSection={setShowMoveSection}
-        />
-        <MoveListSection setShowMoveSection={setShowMoveSection} showMoveSection={showMoveSection} />
+    <div className="flex flex-col h-screen overflow-clip">
+        <Header />
+        {gameOver && <GameOver currentScore={currentScore} restart={restart} />}
+        {showHistoryJump && <HistoryJump setShowHistoryJump={setShowHistoryJump} jumpToHistory={jumpToHistory} playedMoves={playedMoves} index={historyIndex} />}
+        <div className="flex grow">
+          <GameFrame
+            targetWord={targetWord}
+            startWord={startWord}
+            currentScore={currentScore}
+            playerBestScore={playerBestScore}
+            globalBestScore={globalBestScore}
+            playedMoves={playedMoves}
+            playWord={playWord}
+            checkingWord={checkingWord}
+            setShowHistoryJump={setShowHistoryJump}
+            setHistoryIndex={setHistoryIndex}
+            showMoveSection={showMoveSection}
+            setShowMoveSection={setShowMoveSection}
+          />
+          <MoveListSection setShowMoveSection={setShowMoveSection} showMoveSection={showMoveSection} />
       </div>
-      <div></div>
     </div>
   );
 }
