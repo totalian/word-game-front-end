@@ -7,7 +7,7 @@ const StatBar = ({targetWord, currentScore, playerBestScore, globalBestScore}) =
         <Stat heading="Target word" value={targetWord} />
         <Stat heading="Current score" value={currentScore} />
         <Stat heading="Your best score" value={playerBestScore} />
-        <Stat heading="Global best score" value={globalBestScore} />
+        <Stat heading="Target score" value={globalBestScore} />
     </div>
   )
 }
