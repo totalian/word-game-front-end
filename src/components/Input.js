@@ -12,7 +12,7 @@ const Input = ({ playWord, checkingWord }) => {
         onKeyDown={e => {
             if(e.key == 'Enter'){
                 setInputValue(inputValue.toLowerCase())
-                playWord(inputValue)
+                playWord(inputValue.toLowerCase())
                 setInputValue("")
             }
         }}
